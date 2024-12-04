@@ -76,13 +76,6 @@ python train.py -s <path to COLMAP dataset> --eval --white_background --images m
 
 </details>
 
-## Generate Novel View Synthesis Videos
-To generate novel view synthesis videos, use the following command:
-```
-python render_360.py -m <path to pre-trained model> -s <path to COLMAP dataset>
-```
-This script renders 150 images around the head and compiles them into a 5-second, 30fps video.
-
 ## Evaluation
 
 The evaluation process follows the same steps as the official Gaussian Splatting implementation. Use the commands below:
@@ -90,6 +83,14 @@ The evaluation process follows the same steps as the official Gaussian Splatting
 python render.py -m <path to pre-trained model> -s <path to COLMAP dataset>
 python metrics.py -m <path to pre-trained model>
 ```
+
+## Generate Novel View Synthesis Videos
+To generate novel view synthesis videos, use the following command:
+```
+python render_360.py -m <path to pre-trained model> -s <path to COLMAP dataset>
+```
+This script renders 150 images around the head and compiles them into a 5-second, 30fps video.
+
 ## GPU Requirement
 We trained our models using a **Google Colab T4 GPU**. 
 For optimal performance, ensure you have access to a similar or higher-tier GPU with sufficient VRAM.
