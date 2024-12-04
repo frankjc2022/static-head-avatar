@@ -1,0 +1,24 @@
+{
+    "position_encoding_config": {
+        "otype": "HashGrid",
+        "n_levels": 4,
+        "n_features_per_level": 8,
+        "log2_hashmap_size": 19,
+        "base_resolution": 16
+    },
+    "color_network_config": {
+        "otype": "FullyFusedMLP",
+        "activation": "ReLU",
+        "output_activation": "None",
+        "n_neurons": 64,
+        "n_hidden_layers": 2
+    },
+    "opacity_network_config": {
+        "otype": "FullyFusedMLP",
+        "activation": "ReLU",
+        "output_activation": "Sigmoid",
+        "n_neurons": 64,
+        "n_hidden_layers": 2
+    },
+    "feature_vector_size": 64
+}
