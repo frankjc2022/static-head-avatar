@@ -79,7 +79,7 @@ python train.py -s <path to COLMAP dataset> --eval --white_background --images m
 ## Generate Novel View Synthesis Videos
 To generate novel view synthesis videos, use the following command:
 ```
-python render_360.py -m {full_output_path} -s {source_path}
+python render_360.py -m <path to pre-trained model> -s <path to COLMAP dataset>
 ```
 This script renders 150 images around the head and compiles them into a 5-second, 30fps video.
 
