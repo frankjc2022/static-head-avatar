@@ -189,29 +189,6 @@ def training(dataset, opt, pipe, testing_iterations, saving_iterations, checkpoi
                 print("\n[ITER {}] Saving Checkpoint".format(iteration))
                 torch.save((gaussians.capture(), iteration), scene.model_path + "/chkpnt" + str(iteration) + ".pth")
 
-    end_time = time.time()-start_time
-
-    render_start_time = time.time()
-    viewpoint_stack = scene.getTrainCameras() + scene.getTestCameras()
-    for idx, viewpoint in enumerate(viewpoint_stack):
-        for i in range(100):
-            image = torch.clamp(render(viewpoint, scene.gaussians, *(pipe, background))["render"], 0.0, 1.0)
-    render_end_time = time.time()
-    total_render_time = render_end_time - render_start_time
-    total_render_images = 100*len(viewpoint_stack)
-    fps = float(total_render_images)/total_render_time
-
-    with open(scene.model_path + "/training_information.txt", "w") as f:
-        f.write(json.dumps({
-            "training_time": end_time,
-            "number_of_gaussians": gaussians.get_xyz.shape[0],
-            "fps": fps,
-            "fps_total_rendered": total_render_images,
-            "fps_total_time": total_render_time
-        }, indent=2))
-
-
-
 def prepare_output_and_logger(args):
     if not args.model_path:
         if os.getenv('OAR_JOB_ID'):
