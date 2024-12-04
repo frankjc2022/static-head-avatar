@@ -4,7 +4,7 @@
 
 import torch
 import torch.nn as nn
-# import tinycudann as tcnn
+import tinycudann as tcnn
 import copy
 
 # mlp_setworks_config.json in the repo is the config data, for details checkout the documentation:
